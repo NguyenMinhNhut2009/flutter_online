@@ -5,7 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_online/model/account_model.dart';
 import 'package:flutter_online/model/auth_model.dart';
-import 'package:flutter_online/screens/login.dart';
+
 import 'package:flutter_online/screens/splash.dart';
 import 'package:flutter_online/theme/color.dart';
 import 'package:google_sign_in/google_sign_in.dart';

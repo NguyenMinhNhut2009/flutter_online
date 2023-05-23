@@ -16,7 +16,7 @@ class AccountModel {
       required this.firebaseStorage});
 
   String? getPrefs(String key) {
-    return prefs.getString(key??"");
+    return prefs.getString(key);
   }
 
   Future<bool> setPrefs(String key, String value) async {

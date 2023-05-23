@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_online/model/account_model.dart';
 import 'package:flutter_online/model/auth_model.dart';
 import 'package:flutter_online/screens/login.dart';
+import 'package:flutter_online/screens/setting.dart';
 import 'package:flutter_online/theme/color.dart';
 import 'package:flutter_online/utils/data.dart';
 import 'package:flutter_online/utils/firestore_constant.dart';
@@ -146,7 +147,10 @@ class _AccountScreenState extends State<AccountScreen> {
                 title: "Setting",
                 leadingIcon: "assets/icons/setting.svg",
                 bgIconColor: blue,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => SettingScreen()));
+                },
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 45),
