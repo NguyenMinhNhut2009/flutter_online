@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_online/model/auth_model.dart';
 import 'package:flutter_online/screens/home.dart';
 import 'package:flutter_online/screens/root_app.dart';
-import 'package:flutter_online/utils/auth_provider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
@@ -18,9 +18,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+    AuthModel authModel = Provider.of<AuthModel>(context);
 
-    switch (authProvider.status) {
+    switch (authModel.status) {
       case Status.authenticateError:
         Fluttertoast.showToast(msg: "Sign in fail");
         break;
@@ -36,8 +36,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: GestureDetector(
         onTap: () async {
-          bool isSuccess = await authProvider.handleSignIn();
+          bool isSuccess = await authModel.handleSignIn();
           if (isSuccess) {
+            print(isSuccess);
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const RootApp()),

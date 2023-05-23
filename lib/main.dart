@@ -3,9 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_online/model/account_model.dart';
+import 'package:flutter_online/model/auth_model.dart';
 import 'package:flutter_online/screens/splash.dart';
 import 'package:flutter_online/theme/color.dart';
-import 'package:flutter_online/utils/auth_provider.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,11 +32,16 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-            create: (_) => AuthProvider(
+            create: (_) => AuthModel(
                 firebaseAuth: FirebaseAuth.instance,
                 firebaseFirestore: firebaseFirestore,
                 googleSignIn: GoogleSignIn(),
-                prefs: prefs))
+                prefs: prefs)),
+        Provider<AccountModel>(
+            create: (_) => AccountModel(
+                prefs: prefs,
+                firebaseFirestore: firebaseFirestore,
+                firebaseStorage: firebaseStorage))
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -16,7 +16,7 @@ enum Status {
   authenticateCanceled,
 }
 
-class AuthProvider extends ChangeNotifier {
+class AuthModel extends ChangeNotifier {
   final GoogleSignIn googleSignIn;
   final FirebaseAuth firebaseAuth;
   final FirebaseFirestore firebaseFirestore;
@@ -25,7 +25,7 @@ class AuthProvider extends ChangeNotifier {
   Status get status => _status;
   Status _status = Status.unintialized;
 
-  AuthProvider(
+  AuthModel(
       {required this.firebaseAuth,
       required this.firebaseFirestore,
       required this.googleSignIn,

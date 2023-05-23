@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_online/model/auth_model.dart';
 import 'package:flutter_online/screens/home.dart';
 import 'package:flutter_online/screens/login.dart';
 import 'package:flutter_online/screens/root_app.dart';
-import 'package:flutter_online/utils/auth_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -25,8 +25,8 @@ class _SplashscreenState extends State<Splashscreen> {
   }
 
   Future<void> navigationPage() async {
-    AuthProvider authProvider = context.read<AuthProvider>();
-    bool isLoggedIn = await authProvider.isLoggedIn();
+    AuthModel authModel = context.read<AuthModel>();
+    bool isLoggedIn = await authModel.isLoggedIn();
     if (isLoggedIn) {
       Navigator.push(
         context,
@@ -50,7 +50,7 @@ class _SplashscreenState extends State<Splashscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xff101010),
-      body: Container(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,10 +1,3 @@
-var profile = {
-  "name": "Nhut Nguyen",
-  "image":
-      "https://drive.google.com/file/d/1BdX0q7hroqYd4a7a9n2LBUkyQmsRO-Ls/view",
-  "email": "nhutxngm@gmail.com"
-};
-
 List categories = [
   {"name": "All", "icon": "assets/icons/category/all.svg"},
   {"name": "Coding", "icon": "assets/icons/category/coding.svg"},
